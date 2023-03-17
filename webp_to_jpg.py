@@ -1,7 +1,7 @@
 import os
 from PIL import Image
 
-# Set the path of the folder, macOS Env
+# Set the path of the folder of your own
 download_folder_path = "/Users/wilburwong/Downloads"
 
 # Get a list of all the files in the Download folder
