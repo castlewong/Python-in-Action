@@ -9,6 +9,7 @@ file_name = 'your_file_name.xls'
 df = pd.read_excel(file_name)
 
 # 选择经度和纬度列
+
 lng_column = 'longitude'
 lat_column = 'latitude'
 
