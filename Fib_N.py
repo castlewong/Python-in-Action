@@ -1,8 +1,9 @@
-def bigger_than(x, y):
-    if x > y:
-        print(x, 'is bigger than', y)
+def compare(x, y):
+    if x == y:
+        return 0
+    elif x > y:
+        return 1
     else:
-        print(y, 'is bigger than', x)
-bigger_than(3, 4)
+        return -1
 
-# Copilot is insane
+print(compare(1, 2))
