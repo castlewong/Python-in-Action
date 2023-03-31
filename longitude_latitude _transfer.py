@@ -1,3 +1,4 @@
+# This tool is aiming to convert location file to decimal format.
 import pandas as pd
 import re
 
