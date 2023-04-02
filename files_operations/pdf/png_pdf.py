@@ -1,6 +1,8 @@
 # Transfer PNGs to PDFs
 # TODO 1.Replace the directory with your own directory for storing the original files
+# Done
 # TODO 2.Change the output_path to your own directory for storing the PDF files
+# Done
 
 from PIL import Image
 import os
