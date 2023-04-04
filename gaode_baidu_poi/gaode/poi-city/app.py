@@ -11,14 +11,13 @@ from transCoordinateSystem import gcj02_to_wgs84, gcj02_to_bd09
 
 # TODO 1.替换为从高德开放平台上申请申请的密钥
 # 我的
-# amap_web_key = ''
-
+amap_web_key = ''
 
 # TODO 2.分类关键字,最好对照<<高德地图POI分类关键字以及编码.xlsx>>来填写对应分类关键字(不是编码)，多个用逗号隔开
-keyword = ['']
+keyword = ['大学']
 
 # TODO 3.城市，多个用逗号隔开
-city = ['重庆']
+city = ['滁州']
 
 # TODO 4.输出数据坐标系,1为高德GCJ20坐标系，2WGS84坐标系，3百度BD09坐标系
 coord = 2
@@ -56,14 +55,86 @@ def write_to_excel(poilist, cityname, classfield):
     sheet = book.add_sheet(classfield, cell_overwrite_ok=True)
 
     # 第一行(列标题)
-    sheet.write(0, 0, 'lon')
-    sheet.write(0, 1, 'lat')
-    sheet.write(0, 2, 'name')
-    sheet.write(0, 3, 'address')
-    sheet.write(0, 4, 'pname')
-    sheet.write(0, 5, 'cityname')
-    sheet.write(0, 6, 'business_area')
-    sheet.write(0, 7, 'type')
+    # sheet.write(0, 0, 'lon')
+    # sheet.write(0, 1, 'lat')
+    # sheet.write(0, 2, 'name')
+    # sheet.write(0, 3, 'address')
+    # sheet.write(0, 4, 'pname')
+    # sheet.write(0, 5, 'cityname')
+    # sheet.write(0, 6, 'business_area')
+    # sheet.write(0, 7, 'type')
+
+    sheet.write(0, 0, 'cm_kid')
+    sheet.write(0, 1, 'orgid')
+    sheet.write(0, 2, 'org_name')
+    sheet.write(0, 3, 'orgtype_code')
+    sheet.write(0, 4, 'orggrade_code')
+    sheet.write(0, 5, 'address')
+    sheet.write(0, 6, 'longitude')
+    sheet.write(0, 7, 'latitude')
+    sheet.write(0, 8, 'mainfeature')
+    sheet.write(0, 9, 'be_dnum')
+    sheet.write(0, 10, 'doctor_num')
+    sheet.write(0, 11, 'nurse_num')
+    sheet.write(0, 12, 'ambulance_num')
+    sheet.write(0, 13, 'equipdesc')
+    sheet.write(0, 14, 'aseisinten')
+    sheet.write(0, 15, 'duty_tel')
+    sheet.write(0, 16, 'clinicu_num')
+    sheet.write(0, 17, 'department_num')
+    sheet.write(0, 18, 'build_time')
+    sheet.write(0, 19, 'hospitalnature')
+    sheet.write(0, 20, 'inpatien_tnum')
+    sheet.write(0, 21, 'datasource')
+    sheet.write(0, 22, 'charge_man')
+    sheet.write(0, 23, 'contact_phone')
+    sheet.write(0, 24, 'fill_man')
+    sheet.write(0, 25, 'fill_phone')
+    sheet.write(0, 26, 'fill_date')
+    sheet.write(0, 27, 'remake')
+    sheet.write(0, 28, 'cm_addtime')
+    sheet.write(0, 29, 'cm_uptime')
+    sheet.write(0, 30, 'cm_creator')
+    sheet.write(0, 31, 'cm_modifier')
+    sheet.write(0, 32, 'cm_version')
+    sheet.write(0, 33, 'cm_regflag')
+    sheet.write(0, 34, 'cm_orgflag')
+
+    sheet.write(1, 0, '主键')
+    sheet.write(1, 1, '医院编号')
+    sheet.write(1, 2, '医院名称')
+    sheet.write(1, 3, '医疗卫生机构类型代码')
+    sheet.write(1, 4, '医院机构等级代码')
+    sheet.write(1, 5, '地址')
+    sheet.write(1, 6, '经度')
+    sheet.write(1, 7, '纬度')
+    sheet.write(1, 8, '主要特色')
+    sheet.write(1, 9, '病床数')
+    sheet.write(1, 10, '医生数')
+    sheet.write(1, 11, '护士数')
+    sheet.write(1, 12, '急救车辆数量')
+    sheet.write(1, 13, '主要医疗装备')
+    sheet.write(1, 14, '抗震设防烈度')
+    sheet.write(1, 15, '值班电话')
+    sheet.write(1, 16, '年诊疗人次')
+    sheet.write(1, 17, '科室数量')
+    sheet.write(1, 18, '医院建院年份')
+    sheet.write(1, 19, '经济类型')
+    sheet.write(1, 20, '年入院人次')
+    sheet.write(1, 21, '数据来源')
+    sheet.write(1, 22, '主要负责人')
+    sheet.write(1, 23, '联系电话')
+    sheet.write(1, 24, '填报人')
+    sheet.write(1, 25, '填报人电话')
+    sheet.write(1, 26, '填报时间')
+    sheet.write(1, 27, '备注')
+    sheet.write(1, 28, '创建时间')
+    sheet.write(1, 29, '修改时间')
+    sheet.write(1, 30, '创建人')
+    sheet.write(1, 31, '修改人')
+    sheet.write(1, 32, '版本号')
+    sheet.write(1, 33, '所属区域')
+    sheet.write(1, 34, '所属组织')
 
     for i in range(len(poilist)):
         location = poilist[i].get('location')
@@ -75,6 +146,7 @@ def write_to_excel(poilist, cityname, classfield):
         type = poilist[i].get('type')
         lng = str(location).split(",")[0]
         lat = str(location).split(",")[1]
+        reg = poilist[i].get('adcode')
 
         if (coord == 2):
             result = gcj02_to_wgs84(float(lng), float(lat))
@@ -86,14 +158,15 @@ def write_to_excel(poilist, cityname, classfield):
             lat = result[1]
 
         # 每一行写入
-        sheet.write(i + 1, 0, lng)
-        sheet.write(i + 1, 1, lat)
-        sheet.write(i + 1, 2, name)
-        sheet.write(i + 1, 3, address)
-        sheet.write(i + 1, 4, pname)
-        sheet.write(i + 1, 5, cityname)
-        sheet.write(i + 1, 6, business_area)
-        sheet.write(i + 1, 7, type)
+        sheet.write(i + 2, 6, lng)
+        sheet.write(i + 2, 7, lat)
+        sheet.write(i + 2, 3, name)
+        sheet.write(i + 2, 11, address)
+        # sheet.write(i + 1, 6, pname)
+        sheet.write(i + 2, 36, cityname)
+        sheet.write(i + 2, 30, business_area)
+        sheet.write(i + 2, 9, type)
+        sheet.write(i + 2, 33, reg)
 
     # 最后，将以上操作保存到指定的Excel文件中
     book.save(r'data' + os.sep + 'poi-' + cityname + "-" + classfield + ".xls")
