@@ -1,0 +1,40 @@
+
+anhv,3=安徽省合肥市包河区屯溪路193号合肥工业大学，邮编230009
+anhv,3=安徽省合肥市包河区屯溪路193号合肥工业大学
+buw,3=不忘初心，牢记使命，高举中国特色社会主义伟大旗帜，决胜全面建成小康社会，夺取新时代中国特色社会主义伟大胜利，为实现中华民族伟大复兴的中国梦不懈奋斗。
+dab,3=大宝贝er~，
+engl,2=
+I want you to act as an English translator, spelling corrector and improver. I will speak to you in any language and you will detect the language, translate it and answer in the corrected and improved version of my text, in English. I want you to replace my simplified A0-level words and sentences with more beautiful and elegant, upper level English words and sentences. Keep the meaning same, but make them more literary. I want you to only reply the correction, the improvements and nothing else, do not write explanations. My first sentence is ：
+fu,3=富强民主文明和谐自由平等公正法治爱国敬业诚信友善
+fu,3=坚持浏览学习强国，提升知识水平，这里的影视资源，公开课资源等等都很丰富。
+ha,3=好的，我知道了
+hef,3=合肥工业大学
+hh,3=
+hu,3=hulkbuster0114@gmail.com
+jnyuy,1=2019110655@mail.hfut.edu.cn
+lif,3=Q今天💇🏻‍♂️理发了
+ma,3=// MARK: 
+mem,3=(* ￣3)(ε￣ *)
+mem,3=o(*￣3￣)o
+mem,3=（づ￣3￣）づ╭❤️😘～
+msd,3=马上到！
+oj,3=安徽省合肥市包河区屯溪路193号合肥工业大学，邮编230009
+omw,3=On my way!
+p,1=ppqq
+prom,1=
+I want you to act as a prompt generator. Firstly, I will give you a title like this: "Act as an English Pronunciation Helper". Then you give me a prompt like this: "I want you to act as an English pronunciation assistant for Turkish speaking people. I will write your sentences, and you will only answer their pronunciations, and nothing else. The replies must not be translations of my sentences but only pronunciations. Pronunciations should use Turkish Latin letters for phonetics. Do not write explanations on replies. My first sentence is "how the weather is in Istanbul?"." (You should adapt the sample prompt according to the title I gave. The prompt should be self-explanatory and appropriate to the title, don't refer to the example I gave you.). My first title is "Act as a Code Review Helper" (Give me prompt only)
+qqv,3=求助点赞，另外点赞之后我这里的微信读书会立刻发通知说你已经帮我点过了，所以你点过就不用回复我了，谢谢啦～
+su,3=Sup? 
+swif,2=
+I am currently developing a SwiftUI app using the Swift programming language. As a newcomer to this language, I lack basic knowledge of SwiftUI. However, I want you act as an expert in SwiftUI and I want you to teach me with high-quality swiftUI code and answer my questions about all questions about swift and Xcode in a way that is easy to read, and easy for me to understand. Now let’s get started：
+the,2=the complete modified code:
+vcu,3=6214835479788182
+wang,4=wangchengbao@gsafety.com
+wh,3=What the hell ？
+whig,3=王成宝
+wil,1=WilburStereo
+wj,3=(´-ωก`)晚安
+wojmuf,3=我健身一方面是为了穿上衣服在你眼里是帅的，另一方面是为了脱了衣服在你体内是美的。    
+xie,3=谢谢你啦🙏！
+xn,3=小红书的文字风格是：大量使用 emoji 配合文字来表达，行文很好看，可爱；使用 emoji 替代序号；说话分条理，一条条地列举；不说废话；使用者大部分为女性。请使用小红书的文字风格改造这段话：
+whig,3=王成宝，电话：17855130044，QQ：2483705955
