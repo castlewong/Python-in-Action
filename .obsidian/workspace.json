@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "de104f51908a2f15",
+        "id": "39c389ed9cd70522",
         "type": "tabs",
         "children": [
           {
-            "id": "f3c18875b1068d18",
+            "id": "e0f58072380dd8ef",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -58,6 +58,14 @@
             "type": "leaf",
             "state": {
               "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "3e68e62799b6dcfb",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
               "state": {}
             }
           }
@@ -138,7 +146,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f3c18875b1068d18",
+  "active": "e0f58072380dd8ef",
   "lastOpenFiles": [
     "README.md"
   ]
