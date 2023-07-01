@@ -1,3 +1,13 @@
+# In summary, the code reads data from "some.txt",
+# processes each line,
+# and writes the formatted data to "formatted.txt".
+# The processed data consists of three columns separated by tabs:
+# phrase, code, and num.
+# The code assumes that the lines in "some.txt"
+# have a specific format,
+# with each line containing a phrase and a code separated by "=",
+# and optionally followed by a number separated by ",".
+
 with open('some.txt', 'r') as f:
     lines = f.readlines()
 
