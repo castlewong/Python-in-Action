@@ -60,4 +60,15 @@ if __name__ == "__main__":
 # 7. `parts.append(line)`:
 #    - If the above condition is true, this line adds the non-empty line to the `parts` list. This list is used to store all the lines of the second part of the text.
 #
-# The purpose of this code is to find the second part in a text file separated by two consecutive empty lines. It extracts the lines between the first and second empty lines, which corresponds to the second part of the text. The `parts` list will contain all the lines from the second part, which will be joined together using `''.join(parts)` later in the code and returned as the output of the `extract_part` function.
+# The purpose of this code is to find the second part in
+# a text file separated by two consecutive empty lines.
+# It extracts the lines between the first and second empty lines,
+# which corresponds to the second part of the text.
+# The `parts` list will contain all the lines from the second part,
+# which will be joined together using `''.join(parts)` later
+# in the code and returned as the output of the `extract_part` function.
+
+# If the code file is in the same folder as the txt files,
+# you can modify the folder_path variable to be an empty string "".
+# This will make Python consider the current working directory as
+# the folder where the txt files are located.
