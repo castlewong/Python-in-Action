@@ -14,8 +14,11 @@ def extract_part(input_file):
                 break
         else:
             if empty_line_count == 1:
-                parts.append(line)
-                parts.append("\n")  # Add an empty line after each non-empty line
+                # parts.append(line)
+                line_without_quotes = line.strip().replace('“', '').replace('”', '')
+                parts.append(line_without_quotes)
+                # parts.append("\n")  # Add an empty line after each non-empty line
+            parts.append("\n")  # Add an empty line after each non-empty line
 
     return ''.join(parts)
 
