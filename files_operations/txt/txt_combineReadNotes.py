@@ -22,11 +22,19 @@ def extract_part(input_file):
 
     return ''.join(parts)
 
-def combine_text_files(folder_path, output_file):
+# def combine_text_files(folder_path, output_file):
+#     with open(output_file, 'w') as f_out:
+#         for file_name in os.listdir(folder_path):
+#             if file_name.endswith('.txt'):
+#                 input_file = os.path.join(folder_path, file_name)
+#                 extracted_part = extract_part(input_file)
+#                 f_out.write(extracted_part)
+#  if txts in the same folder as the codes
+def combine_text_files(output_file):
     with open(output_file, 'w') as f_out:
-        for file_name in os.listdir(folder_path):
+        for file_name in os.listdir():
             if file_name.endswith('.txt'):
-                input_file = os.path.join(folder_path, file_name)
+                input_file = os.path.join(file_name)
                 extracted_part = extract_part(input_file)
                 f_out.write(extracted_part)
 
@@ -34,7 +42,8 @@ if __name__ == "__main__":
     folder_path = "txt"  # Replace with the path to your folder containing txt files
     output_file = "combined_output.txt"   # Name of the output file
 
-    combine_text_files(folder_path, output_file)
+    # combine_text_files(folder_path, output_file)
+    combine_text_files(output_file)
 
 # Certainly! Let me explain each part of the code step by step:
 #

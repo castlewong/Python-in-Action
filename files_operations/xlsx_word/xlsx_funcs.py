@@ -1,9 +1,8 @@
 import openpyxl
 import shutil
-import os
 import difflib
 import pandas as pd
-# 对比两个array
+
 def compare_arrays(arrayDB, arrayProvince):
     result = []
     for prov_element in arrayProvince:
@@ -65,7 +64,6 @@ def rename_sheets_xlsx(filepath, new_name):
 # arrDB = get_xlsx_files('/Users/wilburwong/Documents/Python-in-Action/files_operations/xlsx_word/xlsx-to-combline')
 #
 # compare_arrays(arrPro, arrDB)
-
 
 def save_sheet_names(filename):
     # Load the workbook using openpyxl
@@ -407,59 +405,59 @@ def update_first_row_name(folder_path, name):
 #
 # import openpyxl
 #
-#
-# def compare_columns(file_a, file_b):
-#     # Load the Excel files
-#     workbook_a = openpyxl.load_workbook(filename=file_a)
-#     workbook_b = openpyxl.load_workbook(filename=file_b)
-#
-#     # Get the sheet names
-#     sheet_names_a = workbook_a.sheetnames
-#     sheet_names_b = workbook_b.sheetnames
-#
-#     # Compare the columns on each sheet
-#     for sheet_name in sheet_names_a:
-#         sheet_a = workbook_a[sheet_name]
-#         sheet_b = workbook_b[sheet_name]
-#
-#         # Get the column index
-#         column_index_a = None
-#         for cell in sheet_a[1]:
-#             if cell.value == "name":
-#                 column_index_a = cell.column
-#                 break
-#         column_index_b = None
-#         for cell in sheet_b[1]:
-#             if cell.value == "name":
-#                 column_index_b = cell.column
-#                 break
-#
-#         # Get the column values as sets
-#         column_a = set()
-#         for row in sheet_a.iter_rows(min_row=2, min_col=column_index_a, max_col=column_index_a, values_only=True):
-#             column_a.add(row[0])
-#         column_b = set()
-#         for row in sheet_b.iter_rows(min_row=2, min_col=column_index_b, max_col=column_index_b, values_only=True):
-#             column_b.add(row[0])
-#
-#         # Identify the differences and create a new workbook to store them
-#         diff = column_a - column_b
-#         if len(diff) > 0:
-#             workbook_diff = openpyxl.Workbook()
-#             sheet_diff = workbook_diff.active
-#
-#             # Write the differences to the new workbook
-#             row_num = 1
-#             for value in diff:
-#                 sheet_diff.cell(row=row_num, column=1, value=value)
-#                 row_num += 1
-#
-#             # Save the new workbook
-#             filename_diff = f"{sheet_name}_diff.xlsx"
-#             workbook_diff.save(filename_diff)c
-#
-#     # Close the workbooks
-#     workbook_a.close()
-#     workbook_b.close()
+
+def compare_columns(file_a, file_b):
+    # Load the Excel files
+    workbook_a = openpyxl.load_workbook(filename=file_a)
+    workbook_b = openpyxl.load_workbook(filename=file_b)
+
+    # Get the sheet names
+    sheet_names_a = workbook_a.sheetnames
+    sheet_names_b = workbook_b.sheetnames
+
+    # Compare the columns on each sheet
+    for sheet_name in sheet_names_a:
+        sheet_a = workbook_a[sheet_name]
+        sheet_b = workbook_b[sheet_name]
+
+        # Get the column index
+        column_index_a = None
+        for cell in sheet_a[1]:
+            if cell.value == "name":
+                column_index_a = cell.column
+                break
+        column_index_b = None
+        for cell in sheet_b[1]:
+            if cell.value == "name":
+                column_index_b = cell.column
+                break
+
+        # Get the column values as sets
+        column_a = set()
+        for row in sheet_a.iter_rows(min_row=2, min_col=column_index_a, max_col=column_index_a, values_only=True):
+            column_a.add(row[0])
+        column_b = set()
+        for row in sheet_b.iter_rows(min_row=2, min_col=column_index_b, max_col=column_index_b, values_only=True):
+            column_b.add(row[0])
+
+        # Identify the differences and create a new workbook to store them
+        diff = column_a - column_b
+        if len(diff) > 0:
+            workbook_diff = openpyxl.Workbook()
+            sheet_diff = workbook_diff.active
+
+            # Write the differences to the new workbook
+            row_num = 1
+            for value in diff:
+                sheet_diff.cell(row=row_num, column=1, value=value)
+                row_num += 1
+
+            # Save the new workbook
+            filename_diff = f"{sheet_name}_diff.xlsx"
+            workbook_diff.save(filename_diff)c
+
+    # Close the workbooks
+    workbook_a.close()
+    workbook_b.close()
 
 # compare_columns('/Users/wilburwong/Documents/Python-in-Action/files_operations/xlsx_word/items_compareTwo copy2/字典相同/关联目标类型省平台.xlsx', '/Users/wilburwong/Documents/Python-in-Action/files_operations/xlsx_word/items_compareTwo copy2/字典相同/关联目标类型.xlsx')
