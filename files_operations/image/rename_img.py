@@ -1,13 +1,13 @@
 import os
 
 # Specify the path to the folder containing the images
-folder_path = "./article"
+folder_path = "/Users/wilburwong/Downloads/g"
 
 # List all files in the folder
 files = os.listdir(folder_path)
 
 # Define the desired new prefix for the filenames
-new_prefix = "article"
+new_prefix = "girl"
 
 # Initialize a counter
 counter = 1
