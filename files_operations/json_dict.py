@@ -15,9 +15,12 @@ def simplify_json(input_file, output_file):
                 simplified_data_list.append(simplified_data)
             except json.JSONDecodeError as e:
                 print(f"Error decoding JSON: {e}")
+            except KeyError as e:
+                print(f"Error extracting data: {e}")
 
     with open(output_file, 'w', encoding='utf-8') as file:
         json.dump(simplified_data_list, file, ensure_ascii=False, indent=2)
+
 
 # Example usage
 input_file_path = '/Users/wilburwong/Documents/SwiftUI-Tutorials/TrySomeThing/_Examples/FlashCards-main/FlashCards/IELTS/IELTS copy.json'
