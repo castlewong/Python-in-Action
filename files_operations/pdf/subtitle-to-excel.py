@@ -87,6 +87,7 @@ def merge_subtitle_excel_files(english_file, chinese_file, output_file):
 
 # Use the function
 
+
 input_file = "/Users/wilburwong/Downloads/[紙牌屋].House.of.Cards.S01.2013.en&amp;cht&amp;chs.yyets.rar/House.of.Cards.S01E02.2013.BluRay.X264.AAC.en&chs.ass"
 output_file = "/Users/wilburwong/Downloads/[紙牌屋].House.of.Cards.S01.2013.en&amp;cht&amp;chs.yyets.rar/output-en.xlsx"
 output_file_ch = "/Users/wilburwong/Downloads/[紙牌屋].House.of.Cards.S01.2013.en&amp;cht&amp;chs.yyets.rar/output-ch.xlsx"
