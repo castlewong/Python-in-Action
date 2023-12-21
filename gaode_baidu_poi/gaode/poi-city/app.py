@@ -11,15 +11,13 @@ from transCoordinateSystem import gcj02_to_wgs84, gcj02_to_bd09
 
 # TODO 1.替换为从高德开放平台上申请申请的密钥测试
 # 在高德开发者平台申请
-amap_web_key = ''
 
-# TODO 2.分类关键字,最好对照<<高德地图POI分类关键字以及编码.xlsx>>来填写对应分类关键字(不是编码)，多个用逗号隔开
-keyword = ["加油站", "加气站", "冶金化工", "自然灾害", "综合酒楼", "桥", "政府机关",
-           "进站口", "检票口", "飞机场", "港口码头", "地铁站", "普通公交站", "音乐厅",
-           "电影院", "电视台", "综合体育馆", "中餐厅", "住宅区", "科研机构", "图书馆",
-           "风景名胜", "隧道", "超市", "水库"]
+amap_web_key = 'f647e0fc2282d433e12024f5c97f05c0'
 
-# TODO 3.城市，多个用逗号隔开
+# TODO 2.分类关键字，多个用逗号隔开
+keyword = ["水库"]
+
+# TODO 3.地市名，多个用逗号隔开
 city = ['滁州']
 
 # TODO 4.输出数据坐标系,1为高德GCJ20坐标系，2WGS84坐标系，3百度BD09坐标系
@@ -66,7 +64,7 @@ def write_to_excel(poilist, cityname, classfield):
     sheet.write(0, 5, 'cityname')
     sheet.write(0, 6, 'business_area')
     sheet.write(0, 7, 'type')
-    #
+    # 示例表头，以医疗单位数据为例：
     # sheet.write(0, 0, 'cm_kid')
     # sheet.write(0, 1, 'orgid')
     # sheet.write(0, 2, 'org_name')
@@ -140,7 +138,7 @@ def write_to_excel(poilist, cityname, classfield):
     # sheet.write(1, 34, '所属组织')
 
     for i in range(len(poilist)):
-        # 只采集个别区县
+        # 如果：只采集个别区县
         if ( poilist[i].get('adcode') == "341126" ):
             location = poilist[i].get('location')
             name = poilist[i].get('name')
@@ -173,11 +171,11 @@ def write_to_excel(poilist, cityname, classfield):
             sheet.write(i + 1, 6, type)
             sheet.write(i + 1, 7, reg)
 
-    # 最后，将以上操作保存到指定的Excel文件中
+    # 将以上操作保存到指定的Excel文件中
     book.save(r'data' + os.sep + 'poi-' + cityname + "-" + classfield + ".xls")
 
 
-# 数据写入csv文件中
+# 可选：数据写入csv文件中
 def write_to_csv(poilist, cityname, classfield):
     data_csv = {}
     lons, lats, names, addresss, pnames, citynames, business_areas, types = [], [], [], [], [], [], [], []
@@ -287,7 +285,6 @@ def get_areas(code):
 
 def get_data(city, keyword):
     '''
-    根据城市名以及POI类型爬取数据
     :param city:
     :param keyword:
     :return:
