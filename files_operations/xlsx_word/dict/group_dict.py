@@ -1,6 +1,5 @@
 import pandas as pd
 # 从另一个xlsx获取sheet名
-# Load the Excel file into a DataFrame
 df = pd.read_excel('type_fromDB.xlsx')
 
 # print(df['type_name'].unique())

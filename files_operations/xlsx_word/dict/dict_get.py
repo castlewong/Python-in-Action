@@ -1,6 +1,7 @@
 
 
 import docx
+from openpyxl import Workbook
 
 # 打开 Word 文档
 doc = docx.Document('dict.docx')
@@ -12,9 +13,6 @@ table = doc.tables[1]
 for i, row in enumerate(table.rows):
     text = (cell.text for cell in row.cells)
     print(f"Row {i}: {' | '.join(text)}")
-
-import docx
-from openpyxl import Workbook
 
 # 打开Word文档
 doc = docx.Document('dict.docx')

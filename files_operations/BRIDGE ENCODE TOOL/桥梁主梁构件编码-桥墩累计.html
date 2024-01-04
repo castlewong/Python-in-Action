@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>主梁构件编码</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  input, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  input[type="number"] {
+    text-align: center;
+  }
+  button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  #result {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+  }
+  </style>
+</head>
+<body>
+  <h2>桥梁构件编码 - 主梁</h2>
+  
+  <label for="bridgeName">桥梁ID:</label>
+  <input type="text" id="bridgeName" placeholder="e.g., 340181_BRIDGE001">
+
+  <label for="partType">桥梁分幅:</label>
+  <input type="text" id="partType" placeholder="e.g., DF">
+
+  <label for="bridgeDirection">桥梁走向:</label>
+  <input type="text" id="bridgeDirection" placeholder="e.g., EW">
+
+  <label for="numSpans">跨数:</label>
+  <input type="number" id="numSpans" min="1" placeholder="e.g., 9">
+
+  <label for="numPillars">每跨梁数:</label>
+  <input type="number" id="numPillars" min="1" placeholder="e.g., 5">
+
+  <button onclick="generateBridgeCodes()">生成构件🌉</button>
+
+  <button onclick="copyToClipboard()">复制到剪贴板📋</button>
+
+  <div id="result"></div>
+
+  <script>
+    function generateBridgeCodes() {
+      const bridgeName = document.getElementById('bridgeName').value.toUpperCase();
+      const partType = document.getElementById('partType').value.toUpperCase();
+      const bridgeDirection = document.getElementById('bridgeDirection').value.toUpperCase();
+      const numSpans = parseInt(document.getElementById('numSpans').value, 10);
+      const numPillars = parseInt(document.getElementById('numPillars').value, 10);
+
+      if (!bridgeName || !partType || !bridgeDirection || isNaN(numSpans) || numSpans < 1 || isNaN(numPillars) || numPillars < 1) {
+        alert('Please enter valid values for the bridge name, another ID, bridge direction, valid number of spans, and a valid number of pillars for each span.');
+        return;
+      }
+
+      const resultElement = document.getElementById('result');
+      resultElement.innerHTML = '';
+
+      let totalPillarCount = 1;
+
+      for (let i = 1; i <= numSpans; i++) {
+        const span = `K${i.toString().padStart(2, '0')}`;
+
+        for (let j = 0; j < numPillars; j++) {
+          const pillarNumber = totalPillarCount + j;
+          const code = `${bridgeName}_${partType}_${bridgeDirection}_${span}_L${pillarNumber.toString().padStart(3, '0')}`;
+          const resultText = `${code}`;
+          resultElement.innerHTML += `<span>${resultText}</span><br>`;
+        }
+
+        totalPillarCount += numPillars;
+      }
+    }
+
+    function copyToClipboard() {
+      const resultElement = document.getElementById('result');
+      const textToCopy = resultElement.innerText;
+
+      if (textToCopy) {
+        navigator.clipboard.writeText(textToCopy)
+          .then(() => {
+            alert('已复制!');
+          })
+          .catch((err) => {
+            console.error('Unable to copy to clipboard', err);
+          });
+      } else {
+        alert('No text to copy. Generate codes first.');
+      }
+    }
+  </script>
+</body>
+</html>

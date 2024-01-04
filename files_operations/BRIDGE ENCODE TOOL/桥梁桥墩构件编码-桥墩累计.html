@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bridge Code Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    #result {
+      margin-top: 20px;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <h2>Bridge Code Generator</h2>
+  
+  <label for="bridgeName">Enter Bridge Name:</label>
+  <input type="text" id="bridgeName" placeholder="e.g., DD">
+
+  <label for="bridgeID">Enter Another ID:</label>
+  <input type="text" id="bridgeID" placeholder="e.g., EE">
+
+  <label for="bridgeDirection">Enter Bridge Direction:</label>
+  <input type="text" id="bridgeDirection" placeholder="e.g., DF">
+
+  <label for="numSpans">Enter Number of Spans for the Bridge:</label>
+  <input type="number" id="numSpans" min="1" placeholder="e.g., 3">
+
+  <label for="numPillars">Enter Number of Pillars for Each Span:</label>
+  <input type="number" id="numPillars" min="1" placeholder="e.g., 5">
+
+  <button onclick="generateBridgeCodes()">Generate Codes</button>
+
+  <div id="result"></div>
+
+  <button onclick="copyToClipboard()">Copy to Clipboard</button>
+
+  <script>
+    function generateBridgeCodes() {
+      const bridgeName = document.getElementById('bridgeName').value.toUpperCase();
+      const bridgeID = document.getElementById('bridgeID').value.toUpperCase();
+      const bridgeDirection = document.getElementById('bridgeDirection').value.toUpperCase();
+      const numSpans = parseInt(document.getElementById('numSpans').value, 10);
+      const numPillars = parseInt(document.getElementById('numPillars').value, 10);
+
+      if (!bridgeName || !bridgeID || !bridgeDirection || isNaN(numSpans) || numSpans < 1 || isNaN(numPillars) || numPillars < 1) {
+        alert('Please enter valid values for the bridge name, another ID, bridge direction, valid number of spans, and a valid number of pillars for each span.');
+        return;
+      }
+
+      const resultElement = document.getElementById('result');
+      resultElement.innerHTML = '';
+
+      let totalPillarCount = 0;
+
+      for (let i = 1; i <= numSpans; i++) {
+        const span = `K${i.toString().padStart(2, '0')}`;
+
+        for (let j = 0; j < numPillars; j++) {
+          const pillarNumber = totalPillarCount + j;
+          const code = `${bridgeName}_${bridgeID}_${bridgeDirection}_${span}_P${pillarNumber.toString().padStart(3, '0')}`;
+          const resultText = `${code}`;
+          resultElement.innerHTML += `<span>${resultText}</span><br>`;
+        }
+
+        totalPillarCount += numPillars;
+      }
+    }
+
+    function copyToClipboard() {
+      const resultElement = document.getElementById('result');
+      const textToCopy = resultElement.innerText;
+
+      if (textToCopy) {
+        navigator.clipboard.writeText(textToCopy)
+          .then(() => {
+            alert('Copied to clipboard!');
+          })
+          .catch((err) => {
+            console.error('Unable to copy to clipboard', err);
+          });
+      } else {
+        alert('No text to copy. Generate codes first.');
+      }
+    }
+  </script>
+</body>
+</html>
