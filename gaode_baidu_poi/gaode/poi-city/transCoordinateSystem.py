@@ -1,7 +1,6 @@
 #! /usr/bin/env python3
 # -*- coding:utf-8 -*-
 
-__author = "Brady_Hu"
 
 import math
 
@@ -9,7 +8,6 @@ x_pi = 3.14159265358979324 * 3000.0 / 180.0
 pi = 3.1415926535897932384626  # π
 a = 6378245.0  # 长半轴
 ee = 0.00669342162296594323  # 扁率
-
 
 def gcj02_to_bd09(lng, lat):
     """
