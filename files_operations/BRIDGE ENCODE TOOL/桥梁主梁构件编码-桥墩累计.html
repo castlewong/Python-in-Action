@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>主梁构件编码</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+
   <style>
     body {
     font-family: Arial, sans-serif;
@@ -57,6 +59,10 @@
   <label for="bridgeName">桥梁ID:</label>
   <input type="text" id="bridgeName" placeholder="e.g., 340181_BRIDGE001">
 
+  <label for="bridgeNamecn">桥梁中文名:</label>
+  <input type="text" id="bridgeNamecn" placeholder="e.g., 林里路慈湖河桥">
+
+
   <label for="partType">桥梁分幅:</label>
   <input type="text" id="partType" placeholder="e.g., DF">
 
@@ -77,6 +83,8 @@
 
   <script>
     function generateBridgeCodes() {
+      const bridgeNamecn = document.getElementById('bridgeNamecn').value.toUpperCase();
+
       const bridgeName = document.getElementById('bridgeName').value.toUpperCase();
       const partType = document.getElementById('partType').value.toUpperCase();
       const bridgeDirection = document.getElementById('bridgeDirection').value.toUpperCase();
@@ -88,8 +96,15 @@
         return;
       }
 
+      const workbook = XLSX.utils.book_new();
+      const sheetName = 'BridgeCodes';
+      const sheetData = [];
+
+
       const resultElement = document.getElementById('result');
       resultElement.innerHTML = '';
+      const headers = ['构件编号', '构件名称', '业主系统编号', '构件位置']; // Add more headers if needed
+  sheetData.push(headers);
 
       let totalPillarCount = 1;
 
@@ -100,11 +115,29 @@
           const pillarNumber = totalPillarCount + j;
           const code = `${bridgeName}_${partType}_${bridgeDirection}_${span}_L${pillarNumber.toString().padStart(3, '0')}`;
           const resultText = `${code}`;
+          sheetData.push([code]);
+
           resultElement.innerHTML += `<span>${resultText}</span><br>`;
         }
 
+        // // chinese version
+        // for (let j = 0; j < numPillars; j++) {
+        //   const pillarNumber = totalPillarCount + j;
+        //   const code = `${bridgeNamecn}${bridgeDirection}方向${partType}号桥_${span}_L${pillarNumber.toString().padStart(3, '0')}`;
+        //   const resultText = `${code}`;
+        //   sheetData.push([code]);
+
+        //   resultElement.innerHTML += `<span>${resultText}</span><br>`;
+        // }
+
         totalPillarCount += numPillars;
       }
+
+      const sheet = XLSX.utils.aoa_to_sheet(sheetData);
+      XLSX.utils.book_append_sheet(workbook, sheet, sheetName);
+
+      // Save the Excel file
+      XLSX.writeFile(workbook, 'BridgeCodes.xlsx');
     }
 
     function copyToClipboard() {
