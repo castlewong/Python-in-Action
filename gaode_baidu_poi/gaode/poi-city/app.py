@@ -10,15 +10,13 @@ from transCoordinateSystem import gcj02_to_wgs84, gcj02_to_bd09
 #################################################需要修改###########################################################
 
 # TODO 1.替换为从高德开放平台上申请申请的密钥测试
-# 在高德开发者平台申请
 
-amap_web_key = 'f647e0fc2282d433e12024f5c97f05c0'
+amap_web_key = ''
 
 # TODO 2.分类关键字，多个用逗号隔开
 keyword = ["水库"]
-
 # TODO 3.地市名，多个用逗号隔开
-city = ['滁州']
+city = ['安康']
 
 # TODO 4.输出数据坐标系,1为高德GCJ20坐标系，2WGS84坐标系，3百度BD09坐标系
 coord = 2
@@ -139,22 +137,22 @@ def write_to_excel(poilist, cityname, classfield):
 
     for i in range(len(poilist)):
         # 如果：只采集个别区县
-        if ( poilist[i].get('adcode') == "341126" ):
-            location = poilist[i].get('location')
-            name = poilist[i].get('name')
-            address = poilist[i].get('address')
-            # pname = poilist[i].get('pname')
-            # cityname = poilist[i].get('cityname')
-            business_area = poilist[i].get('business_area')
-            type = poilist[i].get('type')
-            lng = str(location).split(",")[0]
-            lat = str(location).split(",")[1]
-            reg = poilist[i].get('adcode')
+        # if ( poilist[i].get('adcode') == "341126" ):
+        location = poilist[i].get('location')
+        name = poilist[i].get('name')
+        address = poilist[i].get('address')
+        # pname = poilist[i].get('pname')
+        # cityname = poilist[i].get('cityname')
+        business_area = poilist[i].get('business_area')
+        type = poilist[i].get('type')
+        lng = str(location).split(",")[0]
+        lat = str(location).split(",")[1]
+        reg = poilist[i].get('adcode')
 
-            if (coord == 2):
-                result = gcj02_to_wgs84(float(lng), float(lat))
-                lng = result[0]
-                lat = result[1]
+        if (coord == 2):
+            result = gcj02_to_wgs84(float(lng), float(lat))
+            lng = result[0]
+            lat = result[1]
             if (coord == 3):
                 result = gcj02_to_bd09(float(lng), float(lat))
                 lng = result[0]
