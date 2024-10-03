@@ -26,8 +26,8 @@ import pandas as pd
 
 
 # Load the Excel files
-org_file_path = '/Users/wilburwong/Nutstore Files/A_Company/A盐城液化气/气瓶2/updated-merged_output_flask-after-join-staion1025.xlsx'  # Replace with your file path
-dict_file_path = '/Users/wilburwong/Nutstore Files/A_Company/A盐城液化气/气瓶2/enterprise_station_dict.xlsx'  # Replace with your file path
+org_file_path = '/Users/wilburwong/Nutstore Files/A_Company/A盐城液化气/随瓶安检.xlsx'  # Replace with your file path
+dict_file_path = '/Users/wilburwong/Nutstore Files/A_Company/A盐城液化气/enterprise_id_dict.xlsx'  # Replace with your file path
 
 org_df = pd.read_excel(org_file_path)
 dict_df = pd.read_excel(dict_file_path)
@@ -42,7 +42,7 @@ enterprise_dict = dict(zip(dict_df['station_name'], dict_df['station_id']))
 org_df['station_name'] = org_df['station_name'].map(enterprise_dict).fillna(org_df['station_name'])
 
 # Save the updated DataFrame to a new Excel file
-updated_org_file_path = '/Users/wilburwong/Nutstore Files/A_Company/A盐城液化气/气瓶2/updated-station-id-replaced1025.xlsx'  # Replace with your file path
+updated_org_file_path = '/Users/wilburwong/Nutstore Files/A_Company/A盐城液化气/随瓶安检22.xlsx'  # Replace with your file path
 org_df.to_excel(updated_org_file_path, index=False)
 
 print(f"Updated Excel file with correct org_id column created: {updated_org_file_path}")
