@@ -1,5 +1,4 @@
-import json
-import emoji
+from files_operations.json import json
 from emoji import EMOJI_DATA   # modern replacement
 
 def get_ios_emojis_with_names():

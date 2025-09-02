@@ -1,4 +1,4 @@
-import json
+from files_operations.json import json
 from pathlib import Path
 from deep_translator import GoogleTranslator
 import pykakasi

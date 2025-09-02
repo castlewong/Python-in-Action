@@ -24,6 +24,6 @@ def simplify_json(input_file, output_file):
 
 # Example usage
 input_file_path = '/Users/wilburwong/Documents/SwiftUI-Tutorials/TrySomeThing/_Examples/FlashCards-main/FlashCards/IELTS/IELTS copy.json'
-output_file_path = 'vocabulary_output.json'
+output_file_path = '../vocabulary_output.json'
 
 simplify_json(input_file_path, output_file_path)
