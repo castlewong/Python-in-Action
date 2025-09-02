@@ -1,4 +1,4 @@
-import json
+from files_operations.json import json
 from pathlib import Path
 from transformers import MarianMTModel, MarianTokenizer
 
