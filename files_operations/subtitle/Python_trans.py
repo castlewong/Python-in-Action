@@ -20,7 +20,7 @@ kks_converter = kks.getConverter()
 # ---------------------------
 # Paths
 # ---------------------------
-input_file = Path("/Users/wilburwong/Documents/LLM/emoji_jp_words_clean.json")
+input_file = Path("/Users/wilburwong/Documents/LLM/emoji_jp_words_clean_copy.json")
 output_file = Path("/Users/wilburwong/Documents/LLM/emojis_with_jp_full.json")
 
 # ---------------------------
